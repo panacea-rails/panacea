@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     panacea-rails (0.1.0)
+      slop (~> 4.6)
 
 GEM
   remote: https://rubygems.org/
@@ -24,6 +25,7 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.9.0)
+    slop (4.6.2)
     unicode-display_width (1.4.0)
 
 PLATFORMS
