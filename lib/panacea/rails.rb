@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "panacea/rails/version"
 
 module Panacea
