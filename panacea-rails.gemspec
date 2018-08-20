@@ -32,6 +32,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "slop", "~> 4.6"
+  spec.add_dependency "tty-prompt", "~> 0.17"
 
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "minitest", "~> 5.0"
