@@ -1,0 +1,10 @@
+expected_coverage:
+  title: What is the expected coverage percentage?
+  default: 80
+  type: range
+  range: 0-100
+
+money_rails:
+  title: Do you want to use money-rails to handle money amounts?
+  default: false
+  type: boolean
