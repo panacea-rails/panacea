@@ -31,6 +31,7 @@ module Panacea
         end
       end
 
+      # rubocop:disable Metrics/AbcSize
       def ask_question(key, question)
         title = question.dig("title")
         default = question.dig("default")
@@ -41,12 +42,15 @@ module Panacea
           answer = prompt.yes?(title) { |q| q.default(default) }
         when "range"
           answer = prompt.ask(title, default: default) { |q| q.in(question.dig("range")) }
+        when "text"
+          answer = prompt.ask(title, default: default)
         else
           raise StandardError, "Question type not supported."
         end
 
         update_answer(key, answer)
       end
+      # rubocop:enable Metrics/AbcSize
 
       def update_answer(key, answer)
         answers[key] = answer
