@@ -1,10 +1,12 @@
 # frozen_string_literal: true
+<%- db_gem = database_gemfile_entry -%>
 
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "<%= @panacea.dig("ruby_version") %>"
 gem "rails", "~> 5.2.1"
+gem "<%= db_gem.name %>"<%= %(, '#{db_gem.version}') if db_gem.version %>
 
 gem "bootsnap", ">= 1.1.0", require: false
 gem "haml-rails"
@@ -12,7 +14,6 @@ gem "interactor-rails"
 <% if @panacea.dig("money_rails") -%>
 gem "money-rails", "~> 1"
 <% end -%>
-gem "pg"
 gem "puma", "~> 3.11"
 gem "sass-rails", "~> 5.0"
 
