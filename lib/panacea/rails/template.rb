@@ -63,6 +63,9 @@ after_bundle do
     generate "devise:views", plural_model_name if @panacea.dig("devise_override_views")
   end
 
+  # Add Kaminari initializer if needed
+  generate "kaminari:config" if @panacea.dig("kaminari")
+
   # Fix rails new style offenses
   run "rubocop -a --format=simple"
 end

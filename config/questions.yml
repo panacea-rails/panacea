@@ -15,7 +15,7 @@ money_rails:
   type: boolean
 
 headless_chrome:
-  title: Do you want to headless chrome to application system test case?
+  title: Do you want to use headless chrome to application system test case?
   default: false
   type: boolean
 
@@ -32,6 +32,11 @@ devise:
       title: Do you want to generate the devise's views on your app?
       default: false
       type: boolean
+
+kaminari:
+  title: Do you want to use Kaminari?
+  default: false
+  type: boolean
 
 oj:
   title: Do you want to optimize Rails' handling of JSON?
