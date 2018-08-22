@@ -32,3 +32,8 @@ devise:
       title: Do you want to generate the devise's views on your app?
       default: false
       type: boolean
+
+oj:
+  title: Do you want to optimize Rails' handling of JSON?
+  default: false
+  type: boolean

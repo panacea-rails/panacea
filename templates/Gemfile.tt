@@ -14,6 +14,9 @@ gem "devise"
 <% end -%>
 gem "haml-rails"
 gem "interactor-rails"
+<% if @panacea.dig("oj") -%>
+gem "oj", "~> 3"
+<% end -%>
 <% if @panacea.dig("money_rails") -%>
 gem "money-rails", "~> 1"
 <% end -%>
