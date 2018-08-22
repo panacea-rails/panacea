@@ -29,6 +29,9 @@ template "templates/simplecov.tt", "test/support/simplecov.rb"
 # Overwrite Test Helper
 template "templates/test_helper.tt", "test/test_helper.rb", force: true
 
+# Overwrite Applicatio System Test Case to Healess Chrome
+template("templates/application_system_test.tt", "test/application_system_test_case.rb", force: true) if @panacea.dig("headless_chrome")
+
 # Configure Letter Opener
 environment nil, env: "development" do
   configs = <<~confs

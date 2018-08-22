@@ -13,3 +13,9 @@ money_rails:
   title: Do you want to use money-rails to handle money amounts?
   default: false
   type: boolean
+
+headless_chrome:
+  title: Do you want to headless chrome to application system test case?
+  default: false
+  type: boolean
+
