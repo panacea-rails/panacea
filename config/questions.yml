@@ -19,3 +19,16 @@ headless_chrome:
   default: false
   type: boolean
 
+devise:
+  title: Do you want to setup devise on your app?
+  default: false
+  type: boolean
+  subquestions:
+    devise_model_name:
+      title: What name do you want to use in your devise model?
+      default: user
+      type: text
+    devise_override_views:
+      title: Do you want to generate the devise's views on your app?
+      default: false
+      type: boolean
