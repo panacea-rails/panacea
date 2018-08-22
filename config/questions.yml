@@ -42,3 +42,13 @@ oj:
   title: Do you want to optimize Rails' handling of JSON?
   default: false
   type: boolean
+
+autocommit:
+  title: Do you want us to create the first commit?
+  default: true
+  type: boolean
+  subquestions:
+    commit_msg:
+      title: What should be the commit's message?
+      default: Initialize Rails App powered with Panacea
+      type: text

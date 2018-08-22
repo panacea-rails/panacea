@@ -68,4 +68,13 @@ after_bundle do
 
   # Fix rails new style offenses
   run "rubocop -a --format=simple"
+
+  # Generate first commit if needed
+  if @panacea.dig("autocommit")
+    git :init
+    git add: "."
+    git commit: "-m '#{@panacea.dig('commit_msg')}'"
+  else
+    git :init unless options[:skip_git]
+  end
 end
