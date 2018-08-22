@@ -32,6 +32,9 @@ template "templates/test_helper.tt", "test/test_helper.rb", force: true
 # Overwrite Applicatio System Test Case to Healess Chrome
 template("templates/application_system_test.tt", "test/application_system_test_case.rb", force: true) if @panacea.dig("headless_chrome")
 
+# Configure oj gem
+template("templates/oj_initializer.tt", "config/initializers/oj.rb") if @panacea.dig("oj")
+
 # Configure Letter Opener
 environment nil, env: "development" do
   <<~CONFS
