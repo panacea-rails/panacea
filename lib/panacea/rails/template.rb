@@ -26,6 +26,16 @@ template "templates/simplecov.tt", "test/support/simplecov.rb"
 # Overwrite Test Helper
 template "templates/test_helper.tt", "test/test_helper.rb", force: true
 
+# Configure Letter Opener
+environment nil, env: "development" do
+  configs = <<~confs
+    # Settings for Letter Opener
+    config.action_mailer.delivery_method = :letter_opener
+    config.action_mailer.perform_deliveries = true
+
+  confs
+end
+
 # Run all initializers
 after_bundle do
   run "spring stop"
