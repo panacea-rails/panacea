@@ -43,6 +43,11 @@ oj:
   default: false
   type: boolean
 
+markdown:
+  title: Do you want to use Markdown parse?
+  default: false
+  type: boolean
+
 autocommit:
   title: Do you want us to create the first commit?
   default: true
