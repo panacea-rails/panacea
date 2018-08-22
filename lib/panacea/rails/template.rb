@@ -17,6 +17,9 @@ configurations_file = File.join(ROOT_DIR, ".panacea")
 # Copy Gemfile
 template "templates/Gemfile.tt", "Gemfile", force: true
 
+# Copy Rubocop
+template "templates/rubocop.tt", ".rubocop.yml"
+
 # Create Test Support dir
 empty_directory "test/support"
 
