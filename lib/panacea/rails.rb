@@ -7,7 +7,7 @@ require "panacea/rails/runner"
 module Panacea
   module Rails
     class << self
-      # rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Metrics/LineLength
+      # rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Metrics/LineLength, Metrics/BlockLength
       def init
         opts = Slop.parse do |o|
           o.banner = "usage: panacea your-app-name [options]"
@@ -15,7 +15,6 @@ module Panacea
           o.string "-d", "--database", "# Options (mysql/postgresql/sqlite3/oracle/frontbase/im_db/sqlserver/jdbcmysql/jdbcsqlite3/jdbcpostgresql/jdbc)", default: "postgresql"
           o.bool "--skip-namespace", "# Skip namespace (affects only isolated applications)", default: false
           o.bool "--skip-yarn", "# Don't use Yarn for managing JavaScript dependencies", default: false
-          o.bool "--skip-gemfile", "# Don't create a Gemfile", default: false
           o.bool "--skip-git", "# Skip .gitignore file", default: false
           o.bool "--skip-keeps", "# Skip source control .keep files", default: false
           o.bool "--skip-action-mailer", "# Skip Action Mailer files", default: false
@@ -60,7 +59,7 @@ module Panacea
 
         Runner.call(opts.arguments.first, opts.to_hash)
       end
-      # rubocop:enable Metrics/AbcSize, Metrics/MethodLength, Metrics/LineLength
+      # rubocop:enable Metrics/AbcSize, Metrics/MethodLength, Metrics/LineLength, Metrics/BlockLength
     end
   end
 end

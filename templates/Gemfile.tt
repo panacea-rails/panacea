@@ -9,6 +9,9 @@ gem "rails", "~> 5.2.1"
 gem "<%= db_gem.name %>"<%= %(, '#{db_gem.version}') if db_gem.version %>
 
 gem "bootsnap", ">= 1.1.0", require: false
+<% if @panacea.dig("devise") -%>
+gem "devise"
+<% end -%>
 gem "haml-rails"
 gem "interactor-rails"
 <% if @panacea.dig("money_rails") -%>

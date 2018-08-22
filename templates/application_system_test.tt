@@ -20,7 +20,9 @@ end
 Capybara.javascript_driver = :headless_chrome
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
+  <% if @panacea.dig("devise") -%>
   include Warden::Test::Helpers
 
+  <% end -%>
   driven_by :headless_chrome
 end

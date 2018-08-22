@@ -34,18 +34,32 @@ template("templates/application_system_test.tt", "test/application_system_test_c
 
 # Configure Letter Opener
 environment nil, env: "development" do
-  configs = <<~confs
+  <<~CONFS
     # Settings for Letter Opener
     config.action_mailer.delivery_method = :letter_opener
     config.action_mailer.perform_deliveries = true
+    config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 
-  confs
+  CONFS
 end
 
 # Run all initializers
 after_bundle do
   run "spring stop"
 
-  # Add money-rails initiliazer if needed
-  rails_command "generate money_rails:initializer" if @panacea.dig("money_rails")
+  # Add money-rails initializer if needed
+  generate "money_rails:initializer" if @panacea.dig("money_rails")
+
+  # Setup devise if needed
+  if @panacea.dig("devise")
+    model_name = @panacea.dig("devise_model_name").downcase
+    plural_model_name = model_name.downcase.pluralize
+
+    generate "devise:install"
+    generate "devise", model_name
+    generate "devise:views", plural_model_name if @panacea.dig("devise_override_views")
+  end
+
+  # Fix rails new style offenses
+  run "rubocop -a --format=simple"
 end

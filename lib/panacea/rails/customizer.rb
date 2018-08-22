@@ -15,7 +15,6 @@ module Panacea
       def initialize(prompt: TTY::Prompt.new)
         @answers = {}
         @prompt = prompt
-        load_questions
       end
 
       def start
@@ -25,9 +24,12 @@ module Panacea
 
       private
 
-      def ask_questions
+      def ask_questions(questions = load_questions)
         questions.each do |key, question|
-          ask_question(key, question)
+          answer = ask_question(key, question)
+          subquestions = question.dig("subquestions")
+
+          ask_questions(subquestions) if !subquestions.nil? && answer
         end
       end
 
