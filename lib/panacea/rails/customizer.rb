@@ -33,7 +33,7 @@ module Panacea
         end
       end
 
-      # rubocop:disable Metrics/AbcSize
+      # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
       def ask_question(key, question)
         title = question.dig("title")
         default = question.dig("default")
@@ -54,7 +54,7 @@ module Panacea
 
         update_answer(key, answer)
       end
-      # rubocop:enable Metrics/AbcSize
+      # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
       def update_answer(key, answer)
         answers[key] = answer
