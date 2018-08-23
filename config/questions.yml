@@ -240,3 +240,19 @@ githook:
       options:
         - pre-commit
         - pre-push
+
+webpack:
+  title: Do you want to use Webpacker?
+  default: false
+  type: boolean
+  subquestions:
+    webpack_type:
+      title: What do you want preconfigure for app-like JavaScript with Webpack?
+      type: select
+      options:
+        - none
+        - react
+        - vue
+        - angular
+        - elm
+        - stimulus

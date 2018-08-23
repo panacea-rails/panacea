@@ -28,6 +28,9 @@ gem "puma", "~> 3.11"
 gem "redcarpet"
 <% end -%>
 gem "sass-rails", "~> 5.0"
+<% if @panacea.dig("webpack") -%>
+gem "webpacker"
+<% end -%>
 
 group :development, :test do
   <% if @panacea.dig("dotenv") -%>
