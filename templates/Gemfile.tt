@@ -30,6 +30,9 @@ gem "redcarpet"
 gem "sass-rails", "~> 5.0"
 
 group :development, :test do
+  <% if @panacea.dig("dotenv") -%>
+  gem "dotenv-rails"
+  <% end -%>
   gem "pry"
   gem "rubocop-rails_config"
 end

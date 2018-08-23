@@ -46,6 +46,12 @@ environment nil, env: "development" do
   CONFS
 end
 
+# Configure dotenv gem
+if @panacea.dig("dotenv")
+  template("templates/dotenv.tt", ".env")
+  append_to_file ".gitignore", "\n# Ignore .env file \n.env\n"
+end
+
 # Run all initializers
 after_bundle do
   run "spring stop"
@@ -71,11 +77,8 @@ after_bundle do
 
   # Generate first commit if needed
   if @panacea.dig("autocommit")
-    git :init
     git add: "."
     git commit: "-m '#{@panacea.dig('commit_msg')}'"
-  else
-    git :init unless options[:skip_git]
   end
 
   # Add selected git hook

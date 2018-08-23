@@ -48,6 +48,11 @@ markdown:
   default: false
   type: boolean
 
+dotenv:
+  title: Do you want to use dotenv to manage ENV variables in development?
+  default: false
+  type: boolean
+
 autocommit:
   title: Do you want us to create the first commit?
   default: true
