@@ -209,6 +209,21 @@ timezone:
     - Samoa - UTC +13:00
     - Tokelau Is. - UTC +13:00
 
+locale:
+  title: Please choose the app's default locale
+  type: select
+  options:
+    - English - en
+    - Spanish - es
+    - Arabic - ar
+    - Chinese - zh
+    - French - fr
+    - German - de
+    - Hindi - hi
+    - Japanese - ja
+    - Portuguese - pt
+    - Russian - ru
+
 autocommit:
   title: Do you want us to create the first commit?
   default: true
