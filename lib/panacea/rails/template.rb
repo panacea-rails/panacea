@@ -77,4 +77,11 @@ after_bundle do
   else
     git :init unless options[:skip_git]
   end
+
+  # Add selected git hook
+  if @panacea.dig("githook") && !options[:skip_git]
+    hook_file = ".git/hooks/#{@panacea.dig('githook_type')}"
+    template "templates/githook.tt", hook_file
+    run "chmod ug+x #{hook_file}"
+  end
 end
