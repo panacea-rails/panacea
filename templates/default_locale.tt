@@ -1,0 +1,4 @@
+# Add here your translations
+
+<%= @panacea.dig("locale").split("- ").last -%>:
+  hello: "Hello world"

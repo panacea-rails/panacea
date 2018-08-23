@@ -63,6 +63,20 @@ application nil do
   CONFS
 end
 
+# Configure default local in application.rb
+
+locale = @panacea.dig("locale").split("- ").last
+
+application nil do
+  <<~CONFS
+    # Default i18n locale
+    config.i18n.default_locale = :#{locale}
+
+  CONFS
+end
+
+template("templates/default_locale.tt", "config/locales/#{locale}.yml") if locale != "en"
+
 # Run all initializers
 after_bundle do
   run "spring stop"
