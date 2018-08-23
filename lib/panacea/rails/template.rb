@@ -52,6 +52,17 @@ if @panacea.dig("dotenv")
   append_to_file ".gitignore", "\n# Ignore .env file \n.env\n"
 end
 
+# Configure timezone in application.rb
+timezone = @panacea.dig("timezone").split("-").first.chomp(" ")
+
+application nil do
+  <<~CONFS
+    # Default timezone
+    config.time_zone = "#{timezone}"
+
+  CONFS
+end
+
 # Run all initializers
 after_bundle do
   run "spring stop"
