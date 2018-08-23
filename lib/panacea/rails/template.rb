@@ -12,6 +12,9 @@ source_paths.unshift(ROOT_DIR)
 configurations_file = File.join(ROOT_DIR, ".panacea")
 @panacea = YAML.safe_load(File.read(configurations_file))
 
+# Get system's Ruby version
+@panacea["ruby_version"] = RUBY_VERSION
+
 # Starting Thor commands:
 
 # Copy Gemfile
