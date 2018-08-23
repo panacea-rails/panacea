@@ -57,3 +57,15 @@ autocommit:
       title: What should be the commit's message?
       default: Initialize Rails App powered with Panacea
       type: text
+
+githook:
+  title: Do you want to add a git hook to help you reduce broken builds/bad quality code?
+  default: true
+  type: boolean
+  subquestions:
+    githook_type:
+      title: What git hook do you want to add?
+      type: select
+      options:
+        - pre-commit
+        - pre-push

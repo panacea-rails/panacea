@@ -46,6 +46,8 @@ module Panacea
           answer = prompt.ask(title, default: default) { |q| q.in(question.dig("range")) }
         when "text"
           answer = prompt.ask(title, default: default)
+        when "select"
+          answer = prompt.select(title, question.dig("options"))
         else
           raise StandardError, "Question type not supported."
         end
