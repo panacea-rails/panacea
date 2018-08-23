@@ -100,6 +100,12 @@ after_bundle do
   # Add Kaminari initializer if needed
   generate "kaminari:config" if @panacea.dig("kaminari")
 
+  # Add Webpack
+  if @panacea.dig("webpack")
+    rails_command "webpacker:install" if @panacea.dig("webpack")
+    rails_command "webpacker:install:#{@panacea.dig("webpack_type")}" if @panacea.dig("webpacker_type") != "none"
+  end
+
   # Fix rails new style offenses
   run "rubocop -a --format=simple"
 
