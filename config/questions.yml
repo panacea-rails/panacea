@@ -11,6 +11,11 @@ expected_coverage:
   type: range
   range: 0-100
 
+factory_bot:
+  title: Do you want to setup FactoryBot for your tests?
+  default: false
+  type: boolean
+
 headless_chrome:
   title: Do you want to setup Headless Chrome as default driver for System Tests?
   default: false
