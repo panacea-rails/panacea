@@ -145,6 +145,11 @@ module Panacea
         git add: "."
         git commit: "-m '#{config.dig('commit_msg')}'"
       end
+
+      def bye_message
+        message = "Panacea's work is done, enjoy!"
+        say "\n\n\e[34m#{message}\e[0m"
+      end
     end
     # rubocop:enable Metrics/ClassLength
   end

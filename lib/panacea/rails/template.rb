@@ -36,4 +36,7 @@ panacea_generator.after_bundle_hook do |generator|
   generator.fix_offenses!
   generator.commit! if panacea_config.dig("autocommit")
   generator.setup_githook if panacea_config.dig("githook") && !options[:skip_git]
+
+  generator.bye_message
 end
+

@@ -13,11 +13,11 @@ module Panacea
           panacea_template = __dir__ + "/template.rb"
           parsed_arguments = parse_arguments(rails_args)
           parsed_arguments << " --template=#{panacea_template}"
+          parsed_arguments = parsed_arguments.split(" ")
 
-          Customizer.start
+          Customizer.start(app_name)
 
-          puts ">>> Generating Boosted Rails app"
-          puts `rails new #{app_name} #{parsed_arguments}`
+          system("rails", "new", app_name, *parsed_arguments)
         end
       end
     end
