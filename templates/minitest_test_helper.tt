@@ -15,6 +15,10 @@ require "minitest/rails"
 # require "minitest/pride"
 
 class ActiveSupport::TestCase
+  <% if @panacea.dig("factory_bot") -%>
+  include FactoryBot::Syntax::Methods
+  <% end -%>
+
   fixtures :all
 end
 

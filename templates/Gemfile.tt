@@ -39,6 +39,9 @@ group :development, :test do
   <% if @panacea.dig("dotenv") -%>
   gem "dotenv-rails"
   <% end -%>
+  <% if @panacea.dig("factory_bot") -%>
+  gem "factory_bot_rails", "~> 4.0"
+  <% end -%>
   gem "pry"
   gem "rubocop-rails_config"
 end
