@@ -47,9 +47,10 @@ module Panacea
       end
 
       def setup_test_suite
-        generate "#{config.dig('test_suite')}:install"
+        return unless config.dig("test_suite") == "rspec"
 
-        run "rm -r test" if config.dig("test_suite") == "rspec"
+        generate "rspec:install"
+        run "rm -r test"
       end
 
       def setup_simplecov
@@ -60,6 +61,7 @@ module Panacea
                end
 
         template "templates/simplecov.tt", "#{path}/simplecov.rb"
+        append_to_file ".gitignore", "\n# Ignore Coverage files \n/coverage\n"
       end
 
       def override_test_helper
@@ -143,7 +145,7 @@ module Panacea
 
       def setup_webpack
         rails_command "webpacker:install"
-        rails_command "webpacker:install:#{config.dig('webpack_type')}" if config.dig("webpacker_type") != "none"
+        rails_command "webpacker:install:#{config.dig('webpack_type')}" if config.dig("webpack_type") != "none"
       end
 
       def setup_githook
