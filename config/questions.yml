@@ -1,3 +1,10 @@
+test_suite:
+  title: Which framework do you want to use in your tests?
+  type: select
+  options:
+    - minitest
+    - rspec
+
 expected_coverage:
   title: What should be the minimum coverage expected by Simplecov?
   default: 80
