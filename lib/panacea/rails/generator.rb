@@ -46,19 +46,32 @@ module Panacea
         template "templates/rubocop.tt", ".rubocop.yml"
       end
 
-      def create_test_support_dir
-        empty_directory "test/support"
+      def setup_test_suite
+        generate "#{config.dig('test_suite')}:install"
+
+        run "rm -r test" if config.dig("test_suite") == "rspec"
       end
 
       def setup_simplecov
-        template "templates/simplecov.tt", "test/support/simplecov.rb"
+        path = if config.dig("test_suite") == "minitest"
+                 "test/support"
+               else
+                 "spec/support"
+               end
+
+        template "templates/simplecov.tt", "#{path}/simplecov.rb"
       end
 
       def override_test_helper
-        template "templates/test_helper.tt", "test/test_helper.rb", force: true
+        if config.dig("test_suite") == "minitest"
+          template "templates/minitest_test_helper.tt", "test/test_helper.rb", force: true
+        else
+          template "templates/rspec_test_helper.tt", "spec/rails_helper.rb", force: true
+        end
       end
 
       def override_application_system_test
+        return unless config.dig("test_suite") == "minitest"
         template "templates/application_system_test.tt", "test/application_system_test_case.rb", force: true
       end
 
@@ -116,6 +129,8 @@ module Panacea
         generate "devise:install"
         generate "devise", model_name
         generate "devise:views", plural_model_name if config.dig("devise_override_views")
+
+        rails_command "db:migrate"
       end
 
       def setup_money_rails

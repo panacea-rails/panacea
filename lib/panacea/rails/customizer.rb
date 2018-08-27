@@ -6,25 +6,27 @@ require "yaml"
 module Panacea
   module Rails
     class Customizer
+      # rubocop:disable Style/FormatStringToken
       WELCOME_MESSAGE = <<~MSG
-       _____________________________
-      |            .....      //    |
-      |        _d^^^^^^^^^b_ //     |
-      |     .d''           ``       |
-      |   .p'                      /|
-      |  .d'                     .//| Welcome to Panacea!
-      | .d'  -----------      - `b. | You are about to boost your fresh
-      | :: --------------------- :: | %{app_name} Rails App
-      | :: --- P A N A C E A --- :: |
-      | :: --------------------- :: | Full documentation here: https://panacea.website
-      | `p. ------------------- .q' | Most of the defaults are false or disabled,
-      |  `p. ----------------- .q'  | if you want to enable a feature please answer yes
-      |   `b. --------------- .d'   |
-      |     `q.. -------- ..p'      |
-      |        ^q........p^         |
-      |____________''''_____________|
+         _____________________________
+        |            .....      //    |
+        |        _d^^^^^^^^^b_ //     |
+        |     .d''           ``       |
+        |   .p'                      /|
+        |  .d'                     .//| Welcome to Panacea!
+        | .d'  -----------      - `b. | You are about to boost your fresh
+        | :: --------------------- :: | %{app_name} Rails App
+        | :: --- P A N A C E A --- :: |
+        | :: --------------------- :: | Full documentation here: https://panacea.website
+        | `p. ------------------- .q' | Most of the defaults are false or disabled,
+        |  `p. ----------------- .q'  | if you want to enable a feature please answer yes
+        |   `b. --------------- .d'   |
+        |     `q.. -------- ..p'      |
+        |        ^q........p^         |
+        |____________''''_____________|
 
       MSG
+      # rubocop:enable Style/FormatStringToken
 
       def self.start(app_name)
         new(app_name).start
@@ -47,7 +49,7 @@ module Panacea
       private
 
       def welcome_message
-        message = WELCOME_MESSAGE % { app_name: app_name.capitalize }
+        message = format(WELCOME_MESSAGE, app_name: app_name.capitalize)
         prompt.say(message, color: :blue)
       end
 

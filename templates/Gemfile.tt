@@ -32,6 +32,9 @@ gem "sass-rails", "~> 5.0"
 gem "webpacker"
 <% end -%>
 
+# Test Suite Gem
+gem "<%= @panacea.dig("test_suite") %>-rails", group: [:development, :test]
+
 group :development, :test do
   <% if @panacea.dig("dotenv") -%>
   gem "dotenv-rails"
@@ -53,7 +56,6 @@ group :test do
   gem "capybara", ">= 2.15", "< 4.0"
   gem "capybara-selenium"
   gem "chromedriver-helper"
-  gem "json_matchers"
   gem "mocha"
   gem "selenium-webdriver"
   gem "simplecov", require: false

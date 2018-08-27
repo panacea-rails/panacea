@@ -8,7 +8,7 @@ class Panacea::Rails::CustomizerTest < Minitest::Test
 
   def setup
     @panacea_config_file = File.join(ROOT_DIR, ".panacea")
-    @subject = Panacea::Rails::Customizer.new
+    @subject = Panacea::Rails::Customizer.new("my_app")
   end
 
   def test_it_generates_a_config_file
