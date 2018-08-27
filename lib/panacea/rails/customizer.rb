@@ -6,23 +6,50 @@ require "yaml"
 module Panacea
   module Rails
     class Customizer
-      def self.start
-        new.start
+      WELCOME_MESSAGE = <<~MSG
+       _____________________________
+      |            .....      //    |
+      |        _d^^^^^^^^^b_ //     |
+      |     .d''           ``       |
+      |   .p'                      /|
+      |  .d'                     .//| Welcome to Panacea!
+      | .d'  -----------      - `b. | You are about to boost your fresh
+      | :: --------------------- :: | %{app_name} Rails App
+      | :: --- P A N A C E A --- :: |
+      | :: --------------------- :: | Full documentation here: https://panacea.website
+      | `p. ------------------- .q' | Most of the defaults are false or disabled,
+      |  `p. ----------------- .q'  | if you want to enable a feature please answer yes
+      |   `b. --------------- .d'   |
+      |     `q.. -------- ..p'      |
+      |        ^q........p^         |
+      |____________''''_____________|
+
+      MSG
+
+      def self.start(app_name)
+        new(app_name).start
       end
 
-      attr_reader :questions, :prompt, :answers
+      attr_reader :questions, :prompt, :answers, :app_name
 
-      def initialize(prompt: TTY::Prompt.new)
+      def initialize(app_name, prompt: TTY::Prompt.new)
+        @app_name = app_name
         @answers = {}
         @prompt = prompt
       end
 
       def start
+        welcome_message
         ask_questions
         save_answers
       end
 
       private
+
+      def welcome_message
+        message = WELCOME_MESSAGE % { app_name: app_name.capitalize }
+        prompt.say(message, color: :blue)
+      end
 
       def ask_questions(questions = load_questions)
         questions.each do |key, question|

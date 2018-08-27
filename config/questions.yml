@@ -1,55 +1,71 @@
 expected_coverage:
-  title: What is the expected coverage percentage?
+  title: What should be the minimum coverage expected by Simplecov?
   default: 80
   type: range
   range: 0-100
 
-money_rails:
-  title: Do you want to use money-rails to handle money amounts?
-  default: false
-  type: boolean
-
 headless_chrome:
-  title: Do you want to use headless chrome to application system test case?
-  default: false
-  type: boolean
-
-devise:
-  title: Do you want to setup devise on your app?
-  default: false
-  type: boolean
-  subquestions:
-    devise_model_name:
-      title: What name do you want to use in your devise model?
-      default: user
-      type: text
-    devise_override_views:
-      title: Do you want to generate the devise's views on your app?
-      default: false
-      type: boolean
-
-kaminari:
-  title: Do you want to use Kaminari?
-  default: false
-  type: boolean
-
-oj:
-  title: Do you want to optimize Rails' handling of JSON?
-  default: false
-  type: boolean
-
-markdown:
-  title: Do you want to use Markdown parse?
+  title: Do you want to setup Headless Chrome as default driver for System Tests?
   default: false
   type: boolean
 
 dotenv:
-  title: Do you want to use dotenv to manage ENV variables in development?
+  title: Do you want to setup Dotenv to manage ENV variables in development?
+  default: false
+  type: boolean
+
+webpack:
+  title: Do you want to use Webpacker to manage your app's frontend?
+  default: false
+  type: boolean
+  subquestions:
+    webpack_type:
+      title: What framework do you want to pre-configure Webpack with?
+      type: select
+      options:
+        - none
+        - react
+        - vue
+        - angular
+        - elm
+        - stimulus
+
+devise:
+  title: Do you want to setup Devise to handle users in your app?
+  default: false
+  type: boolean
+  subquestions:
+    devise_model_name:
+      title: What should be your Devise model name?
+      default: user
+      type: text
+    devise_override_views:
+      title: Do you want to add the Devise's views in your app?
+      default: false
+      type: boolean
+
+kaminari:
+  title: Do you want to use Kaminari to handle pagination?
+  default: false
+  type: boolean
+
+oj:
+  title: Do you want to setup OJ to optimize JSON handling in your app?
+  default: false
+  type: boolean
+
+money_rails:
+  title: Do you want to use Money Rails to handle money amounts in your app?
+  default: false
+  type: boolean
+
+markdown:
+  title: Do you want to use Redcarpet to handle Markdown in your app?
   default: false
   type: boolean
 
 timezone:
-  title: Please choose the app's timezone
+  title: Please choose your app's default time zone
   type: select
   options:
     - UTC - UTC +00:00
@@ -205,7 +221,7 @@ timezone:
     - Tokelau Is. - UTC +13:00
 
 locale:
-  title: Please choose the app's default locale
+  title: Please choose your app's default locale
   type: select
   options:
     - English - en
@@ -220,8 +236,8 @@ locale:
     - Russian - ru
 
 autocommit:
-  title: Do you want us to create the first commit?
-  default: true
+  title: Do you want to auto-generate the initial commit?
+  default: false
   type: boolean
   subquestions:
     commit_msg:
@@ -230,29 +246,13 @@ autocommit:
       type: text
 
 githook:
-  title: Do you want to add a git hook to help you reduce broken builds/bad quality code?
-  default: true
+  title: Do you want to add a Git hook to help you to improve your workflow?
+  default: false
   type: boolean
   subquestions:
     githook_type:
-      title: What git hook do you want to add?
+      title: Which Git hook do you want to add?
       type: select
       options:
         - pre-commit
         - pre-push
-
-webpack:
-  title: Do you want to use Webpacker?
-  default: false
-  type: boolean
-  subquestions:
-    webpack_type:
-      title: What do you want preconfigure for app-like JavaScript with Webpack?
-      type: select
-      options:
-        - none
-        - react
-        - vue
-        - angular
-        - elm
-        - stimulus
