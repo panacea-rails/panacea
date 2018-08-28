@@ -2,6 +2,7 @@
 
 require "tty/prompt"
 require "yaml"
+require_relative "stats"
 
 module Panacea
   module Rails
@@ -43,6 +44,7 @@ module Panacea
       def start
         welcome_message
         ask_questions
+        track_answers
         save_answers
       end
 
@@ -99,6 +101,15 @@ module Panacea
         configurations_file = File.join(root_dir, ".panacea")
 
         File.open(configurations_file, "w") { |f| f.write(answers.to_yaml) }
+      end
+
+      def track_answers
+        share_usage_info = @answers.delete("share_usage_info")
+        return unless share_usage_info
+
+        params = answers.dup
+        params[:ruby_version] = RUBY_VERSION
+        Stats.track(params)
       end
     end
   end

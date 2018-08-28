@@ -268,3 +268,8 @@ githook:
       options:
         - pre-commit
         - pre-push
+
+share_usage_info:
+  title: Do you want help us improve Panacea by sharing with us your answers? [100% anonymous]
+  default: true
+  type: boolean
