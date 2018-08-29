@@ -1,0 +1,9 @@
+# Add your own tasks in files placed in lib/tasks ending in .rake,
+# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
+
+require_relative "config/application"
+<% if @panacea.dig("background_job") == "resque" -%>
+require "resque/tasks"
+<% end -%>
+
+Rails.application.load_tasks

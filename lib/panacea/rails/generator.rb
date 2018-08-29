@@ -86,6 +86,28 @@ module Panacea
         append_to_file ".gitignore", "\n# Ignore .env file \n.env\n"
       end
 
+      def setup_background_job
+        background_job = config.dig("background_job")
+
+        application nil do
+          <<~CONFS
+            # Default adapter queue
+            config.active_job.queue_adapter = :#{background_job}
+
+          CONFS
+        end
+
+        if background_job == "sidekiq"
+          route "mount Sidekiq::Web => '/sidekiq'"
+          route "require 'sidekiq/web'"
+        elsif background_job == "resque"
+          route "mount Resque::Server, at: '/jobs'"
+          route "require 'resque/server'"
+
+          template("templates/Rakefile.tt", "Rakefile", force: true)
+        end
+      end
+
       def setup_timezone
         timezone = config.dig("timezone").split("-").first.chomp(" ")
 
