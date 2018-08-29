@@ -8,7 +8,7 @@ module Panacea
     class Stats
       attr_reader :params
 
-      API_BASE = "https://panacea-stats.herokuapp.com/statistics"
+      API_BASE = "https://stats.panacea.website/statistics"
 
       def self.track(params)
         new(params)
