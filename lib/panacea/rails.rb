@@ -33,7 +33,7 @@ module Panacea
           o.bool "--skip-bootsnap", "# Skip bootsnap gem", default: false
           o.bool "--dev", "# Setup the application with Gemfile pointing to your Rails checkout", default: false
           o.bool "--edge", "# Setup the application with Gemfile pointing to Rails repository", default: false
-          o.string "--rc", "# Path to file containing extra configuration options for rails command", default: "RC"
+          o.string "--rc", "# Path to file containing extra configuration options for rails command", default: nil
           o.bool "--no-rc", "# Skip loading of extra configuration options from .railsrc file", default: false
           o.bool "--api", "# Preconfigure smaller stack for API only apps", default: false
           o.bool "--skip-bundle", "# Don't run bundle install", default: false
