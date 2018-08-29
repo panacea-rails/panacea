@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["guillermo@michelada.io", "rafael@michelada.io", "eduardo@michelada.io"]
 
   spec.summary       = "Rails Apps Generator"
-  spec.homepage      = "https://git.michelada.io/panacea/panacea-rails"
+  spec.homepage      = "https://www.panacea.website"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

@@ -24,7 +24,7 @@ Panacea will ask you some questions in order to help you setup your fresh Rails 
 
 You can read the full documentation here:
 
-**[https://panacea.website](panacea.website)**
+**[https://www.panacea.website](https://www.panacea.website)**
 
 ## Contributing
 
@@ -36,4 +36,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Panacea::Rails project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/panacea-rails/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Panacea::Rails project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/panacea-rails/panacea/blob/master/CODE_OF_CONDUCT.md).
