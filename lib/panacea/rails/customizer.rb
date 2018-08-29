@@ -29,14 +29,15 @@ module Panacea
       MSG
       # rubocop:enable Style/FormatStringToken
 
-      def self.start(app_name)
-        new(app_name).start
+      def self.start(app_name, passed_args)
+        new(app_name, passed_args).start
       end
 
-      attr_reader :questions, :prompt, :answers, :app_name
+      attr_reader :questions, :prompt, :answers, :app_name, :passed_args
 
-      def initialize(app_name, prompt: TTY::Prompt.new)
+      def initialize(app_name, passed_args, prompt: TTY::Prompt.new)
         @app_name = app_name
+        @passed_args = passed_args
         @answers = {}
         @prompt = prompt
       end
@@ -104,11 +105,12 @@ module Panacea
       end
 
       def track_answers
-        share_usage_info = @answers.delete("share_usage_info")
+        share_usage_info = answers.delete("share_usage_info")
         return unless share_usage_info
 
         params = answers.dup
         params[:ruby_version] = RUBY_VERSION
+        params[:arguments] = passed_args
         Stats.track(params)
       end
     end
