@@ -26,6 +26,7 @@ panacea_generator.after_bundle_hook do |generator|
   generator.setup_test_suite
   generator.override_test_helper
   generator.setup_simplecov
+  generator.setup_background_job if panacea_config.dig("background_job") != "none"
   generator.override_application_system_test if panacea_config.dig("headless_chrome")
   generator.setup_devise if panacea_config.dig("devise")
   generator.setup_money_rails if panacea_config.dig("money_rails")

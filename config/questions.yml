@@ -76,6 +76,15 @@ markdown:
   default: false
   type: boolean
 
+background_job:
+  title: Do you want to use a Background Jobs adapter?
+  type: select
+  options:
+    - none
+    - sidekiq
+    - resque
+    - sucker_punch
+
 timezone:
   title: Please choose your app's default time zone
   type: select

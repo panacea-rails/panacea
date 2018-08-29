@@ -34,6 +34,11 @@ gem "uglifier", ">= 1.3.0"
 gem "webpacker"
 <% end -%>
 
+<% if @panacea.dig("background_job") != "none" -%>
+# Background Jobs Adapter
+gem "<%= @panacea.dig("background_job") %>"
+<% end -%>
+
 # Test Suite Gem
 gem "<%= @panacea.dig("test_suite") %>-rails", group: [:development, :test]
 
