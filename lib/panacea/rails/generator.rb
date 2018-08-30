@@ -236,6 +236,14 @@ module Panacea # :nodoc:
       end
 
       ###
+      # Setup foreman gem
+      def setup_foreman
+        run "gem install foreman" unless system("gem list -i foreman")
+
+        template("templates/Procfile.tt", "Procfile")
+      end
+
+      ###
       # Creates chosen Git hook.
       def setup_githook
         hook_file = ".git/hooks/#{config.dig('githook_type')}"

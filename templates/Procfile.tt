@@ -1,0 +1,11 @@
+web: bin/rails s -p $PORT
+<% if @panacea.dig("background_job") == "sidekiq" -%>
+redis: redis-server
+sidekiq: bundle exec sidekiq -q default -q mailers
+<% elsif @panacea.dig("background_job") == "resque" -%>
+redis: redis-server
+resque: bundle exec rake resque:work QUEUE='*'
+<% end -%>
+<% if @panacea.dig("webpack") -%>
+webpack: bin/webpack-dev-server
+<% end -%>
