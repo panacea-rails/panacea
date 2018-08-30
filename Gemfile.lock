@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     panacea-rails (0.1.0)
+      bundler (~> 1)
       slop (~> 4.6)
       tty-prompt (~> 0.17)
 
@@ -23,6 +24,7 @@ GEM
     powerpack (0.1.2)
     rainbow (3.0.0)
     rake (10.5.0)
+    rdoc (6.0.4)
     rubocop (0.58.2)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -32,6 +34,8 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.9.0)
+    sdoc (1.0.0)
+      rdoc (>= 5.0)
     slop (4.6.2)
     timers (4.1.2)
       hitimes
@@ -55,11 +59,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.16)
   minitest (~> 5.0)
   panacea-rails!
   rake (~> 10.0)
   rubocop (~> 0.58)
+  sdoc (~> 1.0)
 
 BUNDLED WITH
    1.16.3
