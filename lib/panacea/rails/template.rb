@@ -1,8 +1,17 @@
 # frozen_string_literal: true
 
+###
+# == Panacea::Rails::Template
+#
+# Template passed to the rails new command.
+#
+# If you want more information about what's happening you can read Panacea::Rails::Generator docs.
+
 require "yaml"
 require_relative "generator"
 
+###
+# Panacea's Installation directory
 ROOT_DIR = File.expand_path("../../../", __dir__)
 
 # Read .panacea configurations file

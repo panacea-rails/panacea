@@ -4,10 +4,22 @@ require "slop"
 require "panacea/rails/version"
 require "panacea/rails/runner"
 
-module Panacea
+module Panacea # :nodoc:
+  ###
+  # == Panacea::Rails
+  #
+  # This module is the access point to the configuration questions and the Panacea::Rails::Generator.
   module Rails
     class << self
       # rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Metrics/LineLength, Metrics/BlockLength
+
+      ###
+      # This method uses Slop to handle the CLI command and its arguments.
+      # It accepts most of the default Rails arguments.
+      #
+      # If App's name is not passed as an argument we show the command help.
+      #
+      # When the App's name is passed, we start the Panacea::Rails::Runner
       def init
         opts = Slop.parse do |o|
           o.banner = "usage: panacea your-app-name [options]"

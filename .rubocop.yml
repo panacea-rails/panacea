@@ -2,6 +2,7 @@ AllCops:
   TargetRubyVersion: 2.5
   Exclude:
     - test/**/*
+    - panacea-rails.gemspec
 
 Metrics/LineLength:
   Max: 120

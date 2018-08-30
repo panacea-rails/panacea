@@ -4,10 +4,18 @@ require "tty/prompt"
 require "yaml"
 require_relative "stats"
 
-module Panacea
-  module Rails
+module Panacea # :nodoc:
+  module Rails # :nodoc:
+    ###
+    # == Panacea::Rails::Customizer
+    #
+    # This class is in charge of asking the configuration questions.
+    # It saves the answers on the .panacea file.
     class Customizer
       # rubocop:disable Style/FormatStringToken
+
+      ###
+      # ASCII art displayed at the start of the Panacea command
       WELCOME_MESSAGE = <<~MSG
          _____________________________
         |            .....      //    |
@@ -29,12 +37,39 @@ module Panacea
       MSG
       # rubocop:enable Style/FormatStringToken
 
+      ###
+      # This method receives the App's name and the passed arguments.
+      #
+      # It creates a new instance of Panacea::Rails::Customizer class and
+      # executes the start instance method.
       def self.start(app_name, passed_args)
         new(app_name, passed_args).start
       end
 
-      attr_reader :questions, :prompt, :answers, :app_name, :passed_args
+      ###
+      # A Hash with the questions loaded from config/questions.yaml file
+      attr_reader :questions
 
+      ###
+      # A TTY::Prompt instance
+      attr_reader :prompt
+
+      ###
+      # A Hash where each question's answer is stored
+      attr_reader :answers
+
+      ###
+      # App's name
+      attr_reader :app_name
+
+      ###
+      # A String with the arguments passed to the Panacea command
+      attr_reader :passed_args
+
+      ###
+      # Panacea::Rails::Customizer initialize method
+      #
+      # A TTY::Prompt instance is used as default prompt.
       def initialize(app_name, passed_args, prompt: TTY::Prompt.new)
         @app_name = app_name
         @passed_args = passed_args
@@ -42,6 +77,11 @@ module Panacea
         @prompt = prompt
       end
 
+      ###
+      # This method shows the Welcome message.
+      # Then, it ask the questions using the default prompt.
+      # It also tracks the answers only if the end user agrees to.
+      # At the end, it saves the answers to the .panacea file.
       def start
         welcome_message
         ask_questions
