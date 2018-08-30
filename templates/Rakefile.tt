@@ -4,6 +4,7 @@
 require_relative "config/application"
 <% if @panacea.dig("background_job") == "resque" -%>
 require "resque/tasks"
+task "resque:setup" => :environment
 <% end -%>
 
 Rails.application.load_tasks

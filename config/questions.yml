@@ -85,6 +85,11 @@ background_job:
     - resque
     - sucker_punch
 
+foreman:
+  title: Do you want to use Foreman to manage your app's processes?
+  default: false
+  type: boolean
+
 timezone:
   title: Please choose your app's default time zone
   type: select
