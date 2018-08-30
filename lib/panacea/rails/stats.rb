@@ -3,22 +3,36 @@
 require "json"
 require "net/http"
 
-module Panacea
-  module Rails
+module Panacea # :nodoc:
+  module Rails # :nodoc:
+    ###
+    # == Panacea::Rails::Stats
+    #
+    # This class tracks the end users answers if they agree to.
     class Stats
+      ###
+      # Hash with the question's answers + ruby version + passed arguments
       attr_reader :params
 
+      ###
+      # Panacea's Stats App endpoint
       API_BASE = "https://stats.panacea.website/statistics"
 
+      ###
+      # It sends the end user's answers to the Panacea's Stats App.
       def self.track(params)
         new(params)
       end
 
+      ###
+      # Panacea::Rails::Stats initialize method.
       def initialize(params)
         @params = params
         track
       end
 
+      ###
+      # Makes an async call to the Panacea's Stats App.
       def track
         request_async_post(params)
       end
