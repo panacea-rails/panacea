@@ -78,6 +78,12 @@ module Panacea # :nodoc:
       end
 
       ###
+      # Update the README.md
+      def copy_readme
+        template "templates/README.tt", "README.md", force: true
+      end
+
+      ###
       # Create .rubocop.yml in generated Rails app.
       def setup_rubocop
         template "templates/rubocop.tt", ".rubocop.yml"

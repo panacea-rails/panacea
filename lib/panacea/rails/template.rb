@@ -24,6 +24,7 @@ panacea_generator = Panacea::Rails::Generator.new(self, panacea_config, ROOT_DIR
 
 panacea_generator.update_source_paths
 panacea_generator.copy_gemfile
+panacea_generator.copy_readme
 panacea_generator.setup_rubocop
 panacea_generator.setup_letter_opener
 panacea_generator.setup_timezone
