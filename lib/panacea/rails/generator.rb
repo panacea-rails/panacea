@@ -82,6 +82,12 @@ module Panacea # :nodoc:
       def copy_readme
         template "templates/README.tt", "README.md", force: true
       end
+      #
+      ###
+      # Creates the PANACEA.md file
+      def generate_panacea_document
+        template "templates/PANACEA.tt", "PANACEA.md"
+      end
 
       ###
       # Create .rubocop.yml in generated Rails app.
