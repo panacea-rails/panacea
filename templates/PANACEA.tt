@@ -1,0 +1,148 @@
+# Panacea::Rails
+
+Here is what Panacea has setup for you:
+
+### Application Settings
+
+#### Timezone
+
+Default timezone was set to: **<%= @panacea.dig("timezone") %>** in *config/application.rb*
+
+#### Locale
+
+Default locale was set to: **<%= @panacea.dig("locale") %>** in *config/application.rb*
+
+### Development Tools
+
+<% if @panacea.dig("foreman") -%>
+#### Foreman
+
+**Procfile** was created.
+<% end -%>
+
+<% if @panacea.dig("githook") -%>
+#### Git hook
+
+The Git hook was installed in *.git/hooks/<%= @panacea.dig("githook_type") %>*
+<% end -%>
+
+### General Purpose
+
+<% if @panacea.dig("devise") -%>
+#### devise
+* The gem was included in Gemfile.
+* `app/models/<%= @panacea.dig("devise_model_name") %>.rb` was created.
+* <%= @panacea.dig("devise_override_views") ? "Devise views were created." : "Devise views were not created." %>
+<% end -%>
+
+<% if @panacea.dig("dotenv") -%>
+#### dotenv-rails
+* The gem was included in Gemfile.
+* `.env` file was created
+* `.env` file was added to .gitignore
+<% end -%>
+
+#### haml-rails
+The gem was included in Gemfile.
+
+#### interactor-rails
+The gem was included in Gemfile.
+
+<% if @panacea.dig("kaminari") -%>
+#### Kaminari
+* The gem was included in Gemfile.
+* The `rails generate kaminari:config` generator was ran.
+<% end -%>
+
+#### letter_opener
+* The gem was included in Gemfile.
+* `config/environments/development.rb` was modified.
+
+<% if @panacea.dig("money_rails") -%>
+#### money-rails
+* The gem was included in Gemfile.
+* The `rails generate money_rails:initializer` generator was ran.
+<% end -%>
+
+<% if @panacea.dig("oj") -%>
+#### oj
+* The gem was included in Gemfile.
+* The `config/initializers/oj.rb` file was created
+<% end -%>
+
+#### pry
+The gem was included in Gemfile.
+
+<% if @panacea.dig("markdown") -%>
+#### redcarpet
+The gem was included in Gemfile.
+<% end -%>
+
+<% if @panacea.dig("webpack") -%>
+### Assets
+
+#### webpacker
+* The gem was included in Gemfile.
+* **<%= @panacea.dig("webpack_type") %>** was the chosen framework.
+<% end -%>
+
+### Background Job
+
+#### <%= @panacea.dig("background_job") %>
+<% if @panacea.dig("background_job") != "none" -%>
+* The gem was included in Gemfile.
+* `config/application.rb` was modified.
+<% end -%>
+<% if @panacea.dig("background_job") =~ /sidekiq|resque/ -%>
+* `config/routes.rb` were updated.
+<% end -%>
+<% if @panacea.dig("background_job") == "resque" -%>
+* `Rakefile` was updated
+<% end -%>
+
+### Security
+
+#### brakeman
+The gem was included in Gemfile.
+
+### Code Coverage
+
+#### simplecov
+* The gem was included in Gemfile.
+* The expected code coverage was set to: <%= @panacea.dig("expected_coverage") %>
+<% if @panacea.dig("test_suite") == "minitest" -%>
+* `test/support/simplecov.rb` was created.
+<% else -%>
+* `spec/support/simplecov.rb` was created.
+<% end -%>
+
+### Linting
+
+#### rubocop-rails_config
+* The gem was included in Gemfile.
+* The `.rubocop.yml` file was created.
+
+### Testing
+
+<% if @panacea.dig("factory_bot") -%>
+#### factory_bot
+* The gem was included in Gemfile.
+<% if @panacea.dig("test_suite") == "minitest" -%>
+* `test/test_helper.rb` was modified.
+<% else -%>
+* `spec/rails_helper.rb` was modified.
+<% end -%>
+<% end -%>
+
+#### <%= @panacea.dig("test_suite") %>-rails
+* The gem was included in Gemfile.
+<% if @panacea.dig("test_suite") == "minitest" -%>
+* `test/test_helper.rb` was created.
+<% else -%>
+* `spec/rails_helper.rb` was created.
+<% end -%>
+
+<% if @panacea.dig("headless_chrome") -%>
+#### Headless Chrome
+The System Tests were configured to run using a Headless Chrome Driver
+<% end %>
