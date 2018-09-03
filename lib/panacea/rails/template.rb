@@ -34,6 +34,7 @@ panacea_generator.setup_oj if panacea_config.dig("oj")
 panacea_generator.setup_dotenv if panacea_config.dig("dotenv")
 
 panacea_generator.after_bundle_hook do |generator|
+  generator.setup_bullet
   generator.setup_test_suite
   generator.override_test_helper
   generator.setup_simplecov

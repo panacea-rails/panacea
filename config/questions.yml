@@ -12,12 +12,12 @@ expected_coverage:
   range: 0-100
 
 factory_bot:
-  title: Do you want to setup FactoryBot for your tests?
+  title: Do you want to use FactoryBot in your tests?
   default: false
   type: boolean
 
 faker:
-  title: Do you want to setup Faker for your tests?
+  title: Do you want to use Faker in your tests?
   default: false
   type: boolean
 
@@ -96,7 +96,7 @@ foreman:
   type: boolean
 
 awesome_print:
-  title: Do you want to use Awesome print console?
+  title: Do you want to use AwesomePrint in your console sessions?
   default: false
   type: boolean
 
