@@ -11,6 +11,14 @@ expected_coverage:
   type: range
   range: 0-100
 
+http_stubs:
+  title: Do you want to setup VCR or Webmock to stub out HTTP requests?
+  type: select
+  options:
+    - none
+    - vcr
+    - webmock
+
 factory_bot:
   title: Do you want to use FactoryBot in your tests?
   default: false
