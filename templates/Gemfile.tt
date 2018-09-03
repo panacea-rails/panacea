@@ -43,6 +43,9 @@ gem "<%= @panacea.dig("background_job") %>"
 gem "<%= @panacea.dig("test_suite") %>-rails", group: [:development, :test]
 
 group :development, :test do
+  <% if @panacea.dig("awesome_print") -%>
+  gem "awesome_print"
+  <% end -%>
   <% if @panacea.dig("dotenv") -%>
   gem "dotenv-rails"
   <% end -%>

@@ -95,6 +95,11 @@ foreman:
   default: false
   type: boolean
 
+awesome_print:
+  title: Do you want to use Awesome print console?
+  default: false
+  type: boolean
+
 timezone:
   title: Please choose your app's default time zone
   type: select
