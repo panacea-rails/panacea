@@ -24,6 +24,9 @@ gem "oj", "~> 3"
 gem "money-rails", "~> 1"
 <% end -%>
 gem "puma", "~> 3.11"
+<% if @panacea.dig("pundit") -%>
+gem "pundit"
+<% end -%>
 <% if @panacea.dig("markdown") -%>
 gem "redcarpet"
 <% end -%>

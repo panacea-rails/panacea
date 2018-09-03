@@ -61,6 +61,11 @@ devise:
       default: false
       type: boolean
 
+pundit:
+  title: Do you want to setup Pundit to handle authorizations?
+  default: false
+  type: boolean
+
 kaminari:
   title: Do you want to use Kaminari to handle pagination?
   default: false

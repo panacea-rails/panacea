@@ -50,7 +50,7 @@ module Panacea # :nodoc:
         %i[
           after_bundle generate rails_command template
           run git source_paths empty_directory append_to_file
-          environment application
+          environment application say inject_into_class
         ].include?(method_name) || super
       end
 
@@ -272,6 +272,13 @@ module Panacea # :nodoc:
         run "gem install foreman" unless system("gem list -i foreman")
 
         template("templates/Procfile.tt", "Procfile")
+      end
+
+      ###
+      # Setup Pundit gem
+      def setup_pundit
+        generate "pundit:install"
+        inject_into_class "app/controllers/application_controller.rb", "ApplicationController", "  include Pundit\n"
       end
 
       ###
