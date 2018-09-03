@@ -12,7 +12,7 @@ expected_coverage:
   range: 0-100
 
 http_stubs:
-  title: Do you want to setup VCR or Webmock to stubs HTTP requests?
+  title: Do you want to setup VCR or Webmock to stub out HTTP requests?
   type: select
   options:
     - none
