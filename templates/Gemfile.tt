@@ -74,6 +74,9 @@ group :test do
   <% end -%>
   gem "selenium-webdriver"
   gem "simplecov", require: false
+  <% if @panacea.dig("http_stubs") != "none" -%>
+  gem "<%= @panacea.dig("http_stubs") %>"
+  <% end -%>
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
