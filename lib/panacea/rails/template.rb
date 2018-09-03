@@ -45,6 +45,7 @@ panacea_generator.after_bundle_hook do |generator|
   generator.setup_kaminari if panacea_config.dig("kaminari")
   generator.setup_webpack if panacea_config.dig("webpack")
   generator.setup_foreman if panacea_config.dig("foreman")
+  generator.setup_pundit if panacea_config.dig("pundit")
 
   # This should be always at the end
   generator.fix_offenses!
