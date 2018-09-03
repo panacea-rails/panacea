@@ -14,15 +14,23 @@ Default locale was set to: **<%= @panacea.dig("locale") %>** in *config/applicat
 
 ### Development Tools
 
+<% if @panacea.dig("awesome_print") -%>
+#### awesome_print
+The gem was included in Gemfile.
+<% end -%>
+
+#### Bullet
+* The gem was included in Gemfile.
+* `config/environments/development.rb` was modified.
+
 <% if @panacea.dig("foreman") -%>
 #### Foreman
-
-**Procfile** was created.
+* Foreman gem was installed in system if needed.
+* **Procfile** was created.
 <% end -%>
 
 <% if @panacea.dig("githook") -%>
 #### Git hook
-
 The Git hook was installed in *.git/hooks/<%= @panacea.dig("githook_type") %>*
 <% end -%>
 
@@ -72,6 +80,18 @@ The gem was included in Gemfile.
 
 #### pry
 The gem was included in Gemfile.
+
+<% if @panacea.dig("pg_search") -%>
+#### pg_search
+The gem was included in Gemfile.
+<% end -%>
+
+<% if @panacea.dig("pundit") -%>
+#### pundit
+* The gem was included in Gemfile.
+* `app/controllers/application_controller.rb` was modified.
+* The `rails generate pundit:install` generator was ran.
+<% end -%>
 
 <% if @panacea.dig("markdown") -%>
 #### redcarpet
@@ -134,6 +154,16 @@ The gem was included in Gemfile.
 <% end -%>
 <% end -%>
 
+<% if @panacea.dig("faker") -%>
+#### Faker
+* The gem was included in Gemfile.
+<% if @panacea.dig("test_suite") == "minitest" -%>
+* `test/test_helper.rb` was modified.
+<% else -%>
+* `spec/rails_helper.rb` was modified.
+<% end -%>
+<% end -%>
+
 #### <%= @panacea.dig("test_suite") %>-rails
 * The gem was included in Gemfile.
 <% if @panacea.dig("test_suite") == "minitest" -%>
@@ -144,5 +174,15 @@ The gem was included in Gemfile.
 
 <% if @panacea.dig("headless_chrome") -%>
 #### Headless Chrome
-The System Tests were configured to run using a Headless Chrome Driver
-<% end %>
+The System Tests were configured to run using a Headless Chrome Driver.
+<% end -%>
+
+<% if @panacea.dig("http_stubs") != "none" -%>
+#### <%= @panacea.dig("http_stubs") %>
+* The gem was included in Gemfile.
+<% if @panacea.dig("test_suite") == "minitest" -%>
+* `test/test_helper.rb` was modified.
+<% else -%>
+* `spec/rails_helper.rb` was modified.
+<% end -%>
+<% end -%>
