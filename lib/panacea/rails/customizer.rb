@@ -105,10 +105,16 @@ module Panacea # :nodoc:
         end
       end
 
-      # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+      # rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Metrics/CyclomaticComplexity, Security/Eval
       def ask_question(key, question)
         title = question.dig("title")
         default = question.dig("default")
+        condition = question.dig("condition")
+
+        unless condition.nil?
+          return unless eval(condition)
+        end
+
         answer = nil
 
         case question.dig("type")
@@ -126,7 +132,7 @@ module Panacea # :nodoc:
 
         update_answer(key, answer)
       end
-      # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
+      # rubocop:enable Metrics/AbcSize, Metrics/MethodLength, Metrics/CyclomaticComplexity, Security/Eval
 
       def update_answer(key, answer)
         answers[key] = answer

@@ -34,6 +34,12 @@ headless_chrome:
   default: false
   type: boolean
 
+pg_search:
+  title: Do you want to add pg_search gem to enable PostgreSQL's full text search?
+  default: false
+  type: boolean
+  condition: "passed_args =~ /--database=postgresql/"
+
 dotenv:
   title: Do you want to setup Dotenv to manage ENV variables in development?
   default: false
