@@ -25,7 +25,7 @@ require "webmock/minitest"
 
 <% if @panacea.dig("http_stubs") == "vcr" -%>
 VCR.configure do |config|
-  config.cassette_library_dir = "#{::Rails.root}/test/vcr_cassettes"
+  config.cassette_library_dir = "test/vcr_cassettes"
   config.hook_into :webmock
 end
 <% end -%>
