@@ -26,6 +26,10 @@ You can read the full documentation here:
 
 **[https://www.panacea.website](https://www.panacea.website)**
 
+## Suggesting Integrations
+
+We accept suggestions via Github's Issues. Please create one issue per suggested gem and mark it with the `suggestion` label. We will do our best to integrate the suggested gem into the Panacea Generator.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at [https://github.com/panacea-rails/panacea](https://github.com/panacea-rails/panacea). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
