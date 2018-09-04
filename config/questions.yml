@@ -1,124 +1,3 @@
-test_suite:
-  title: Which framework do you want to use in your tests?
-  type: select
-  options:
-    - minitest
-    - rspec
-
-expected_coverage:
-  title: What should be the minimum coverage expected by Simplecov?
-  default: 80
-  type: range
-  range: 0-100
-
-http_stubs:
-  title: Do you want to setup VCR or Webmock to stub out HTTP requests?
-  type: select
-  options:
-    - none
-    - vcr
-    - webmock
-
-factory_bot:
-  title: Do you want to use FactoryBot in your tests?
-  default: false
-  type: boolean
-
-faker:
-  title: Do you want to use Faker in your tests?
-  default: false
-  type: boolean
-
-headless_chrome:
-  title: Do you want to setup Headless Chrome as default driver for System Tests?
-  default: false
-  type: boolean
-
-pg_search:
-  title: Do you want to add pg_search gem to enable PostgreSQL's full text search?
-  default: false
-  type: boolean
-  condition: "passed_args =~ /--database=postgresql/"
-
-dotenv:
-  title: Do you want to setup Dotenv to manage ENV variables in development?
-  default: false
-  type: boolean
-
-webpack:
-  title: Do you want to use Webpacker to manage your app's frontend?
-  default: false
-  type: boolean
-  subquestions:
-    webpack_type:
-      title: What framework do you want to pre-configure Webpack with?
-      type: select
-      options:
-        - none
-        - react
-        - vue
-        - angular
-        - elm
-        - stimulus
-
-devise:
-  title: Do you want to setup Devise to handle users in your app?
-  default: false
-  type: boolean
-  subquestions:
-    devise_model_name:
-      title: What should be your Devise model name?
-      default: user
-      type: text
-    devise_override_views:
-      title: Do you want to add the Devise's views in your app?
-      default: false
-      type: boolean
-
-pundit:
-  title: Do you want to setup Pundit to handle authorizations?
-  default: false
-  type: boolean
-
-kaminari:
-  title: Do you want to use Kaminari to handle pagination?
-  default: false
-  type: boolean
-
-oj:
-  title: Do you want to setup OJ to optimize JSON handling in your app?
-  default: false
-  type: boolean
-
-money_rails:
-  title: Do you want to use Money Rails to handle money amounts in your app?
-  default: false
-  type: boolean
-
-markdown:
-  title: Do you want to use Redcarpet to handle Markdown in your app?
-  default: false
-  type: boolean
-
-background_job:
-  title: Do you want to use a Background Jobs adapter?
-  type: select
-  options:
-    - none
-    - sidekiq
-    - resque
-    - sucker_punch
-
-foreman:
-  title: Do you want to use Foreman to manage your app's processes?
-  default: false
-  type: boolean
-
-awesome_print:
-  title: Do you want to use AwesomePrint in your console sessions?
-  default: false
-  type: boolean
-
 timezone:
   title: Please choose your app's default time zone
   type: select
@@ -290,18 +169,129 @@ locale:
     - Portuguese - pt
     - Russian - ru
 
-autocommit:
-  title: Do you want to auto-generate the initial commit?
+background_job:
+  title: Which background jobs adapter do you want to use?
+  type: select
+  options:
+    - none
+    - sidekiq
+    - resque
+    - sucker_punch
+
+test_suite:
+  title: Which tool do you want to use for your tests?
+  type: select
+  options:
+    - minitest
+    - rspec
+
+http_stubs:
+  title: Which tool do you want to use to stub out HTTP requests?
+  type: select
+  options:
+    - none
+    - vcr
+    - webmock
+
+expected_coverage:
+  title: What should be the minimum coverage expected by Simplecov?
+  default: 80
+  type: range
+  range: 0-100
+
+headless_chrome:
+  title: Do you want to setup Headless Chrome as default driver for System Tests?
+  default: false
+  type: boolean
+
+factory_bot:
+  title: Do you want to use FactoryBot in your tests?
+  default: false
+  type: boolean
+
+faker:
+  title: Do you want to use Faker in your tests?
+  default: false
+  type: boolean
+
+dotenv:
+  title: Do you want to use Dotenv to manage ENV variables in development?
+  default: false
+  type: boolean
+
+webpack:
+  title: Do you want to use Webpacker to manage your app's frontend?
   default: false
   type: boolean
   subquestions:
-    commit_msg:
-      title: What should be the commit's message?
-      default: Initialize Rails App powered with Panacea
+    webpack_type:
+      title: What framework do you want to pre-configure Webpack with?
+      type: select
+      options:
+        - none
+        - react
+        - vue
+        - angular
+        - elm
+        - stimulus
+
+pg_search:
+  title: Do you want to use pg_search gem to enable PostgreSQL's full text search?
+  default: false
+  type: boolean
+  condition: "passed_args =~ /--database=postgresql/"
+
+devise:
+  title: Do you want to use Devise to handle users in your app?
+  default: false
+  type: boolean
+  subquestions:
+    devise_model_name:
+      title: What should be your Devise model name?
+      default: user
       type: text
+    devise_override_views:
+      title: Do you want to add the Devise's views in your app?
+      default: false
+      type: boolean
+
+pundit:
+  title: Do you want to use Pundit to handle authorizations?
+  default: false
+  type: boolean
+
+kaminari:
+  title: Do you want to use Kaminari to handle pagination?
+  default: false
+  type: boolean
+
+oj:
+  title: Do you want to use OJ to optimize JSON handling in your app?
+  default: false
+  type: boolean
+
+money_rails:
+  title: Do you want to use Money Rails to handle money amounts in your app?
+  default: false
+  type: boolean
+
+markdown:
+  title: Do you want to use Redcarpet to handle Markdown in your app?
+  default: false
+  type: boolean
+
+foreman:
+  title: Do you want to use Foreman to manage your app's processes?
+  default: false
+  type: boolean
+
+awesome_print:
+  title: Do you want to use AwesomePrint in your console sessions?
+  default: false
+  type: boolean
 
 githook:
-  title: Do you want to add a Git hook to help you to improve your workflow?
+  title: Do you want to use a Git hook to help you to improve your workflow?
   default: false
   type: boolean
   subquestions:
@@ -312,7 +302,17 @@ githook:
         - pre-commit
         - pre-push
 
+autocommit:
+  title: Do you want to auto-generate the initial commit?
+  default: false
+  type: boolean
+  subquestions:
+    commit_msg:
+      title: What should be the commit's message?
+      default: Initialize Rails App powered with Panacea
+      type: text
+
 share_usage_info:
-  title: Do you want help us improve Panacea by sharing with us your answers? [100% anonymous]
+  title: Do you want to help us improve Panacea by sharing with us your answers? [100% anonymous]
   default: true
   type: boolean
