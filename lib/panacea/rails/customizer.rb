@@ -115,20 +115,18 @@ module Panacea # :nodoc:
           return unless eval(condition)
         end
 
-        answer = nil
-
-        case question.dig("type")
-        when "boolean"
-          answer = prompt.yes?(title) { |q| q.default(default) }
-        when "range"
-          answer = prompt.ask(title, default: default) { |q| q.in(question.dig("range")) }
-        when "text"
-          answer = prompt.ask(title, default: default)
-        when "select"
-          answer = prompt.select(title, question.dig("options"))
-        else
-          raise StandardError, "Question type not supported."
-        end
+        answer =  case question.dig("type")
+                  when "boolean"
+                    prompt.yes?(title) { |q| q.default(default) }
+                  when "range"
+                    prompt.ask(title, default: default) { |q| q.in(question.dig("range")) }
+                  when "text"
+                    prompt.ask(title, default: default)
+                  when "select"
+                    prompt.select(title, question.dig("options"))
+                  else
+                    raise StandardError, "Question type not supported."
+                  end
 
         update_answer(key, answer)
       end
