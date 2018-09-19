@@ -1,0 +1,7 @@
+<%- template_name = @panacea.dig("bootswatch_template_name") %>
+@import "bootstrap-sprockets";
+@import <%= "'bootswatch/#{template_name}/variables';" %>
+@import "bootstrap";
+@import <%= "'bootswat4ch/#{template_name}/bootswatch';" %>
+
+@import "font-awesome";

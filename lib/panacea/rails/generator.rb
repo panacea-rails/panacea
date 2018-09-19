@@ -36,7 +36,7 @@ module Panacea # :nodoc:
 
       ###
       # Send any unknown method to the Rails::Generators::AppGenerator context.
-      # That context also know Thor actions.
+      # That context also knows Thor actions.
       def method_missing(method_name, *args, &block)
         super unless app_generator.respond_to?(method_name)
         app_generator.send(method_name, *args, &block)
@@ -51,6 +51,7 @@ module Panacea # :nodoc:
           after_bundle generate rails_command template
           run git source_paths empty_directory append_to_file
           environment application say inject_into_class
+          inject_into_file
         ].include?(method_name) || super
       end
 
@@ -167,7 +168,7 @@ module Panacea # :nodoc:
           route "mount Resque::Server, at: '/jobs'"
           route "require 'resque/server'"
 
-          template("templates/Rakefile.tt", "Rakefile", force: true)
+          template "templates/Rakefile.tt", "Rakefile", force: true
         end
       end
 
@@ -248,6 +249,20 @@ module Panacea # :nodoc:
       end
 
       ###
+      # Setup booswatch-rails gem.
+      def setup_bootswatch
+        stylesheets = "app/assets/stylesheets/application.scss"
+
+        run "rm app/assets/stylesheets/application.css"
+        template "templates/bootswatch.scss.tt", stylesheets
+
+        inject_into_file "app/assets/javascripts/application.js", after: "//= require turbolinks" do
+          "\n//= require jquery
+           \n//= require boostrap-sprockets"
+        end
+      end
+
+      ###
       # Setup money_rails gem.
       def setup_money_rails
         generate "money_rails:initializer"
@@ -271,7 +286,7 @@ module Panacea # :nodoc:
       def setup_foreman
         run "gem install foreman" unless system("gem list -i foreman")
 
-        template("templates/Procfile.tt", "Procfile")
+        template "templates/Procfile.tt", "Procfile"
       end
 
       ###
