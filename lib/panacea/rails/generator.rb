@@ -271,7 +271,6 @@ module Panacea # :nodoc:
 
         generate "controller home index"
         inject_into_file "config/routes.rb", "\nroot to: 'home#index'", after: "Rails.application.routes.draw do"
-        template "templates/bootswatch/views/home/index.html.haml.tt", "app/views/home/index.html.haml", force: true
       end
 
       ###
