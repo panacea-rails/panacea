@@ -276,6 +276,8 @@ module Panacea # :nodoc:
 
         generate "controller home index"
         inject_into_file "config/routes.rb", "\nroot to: 'home#index'", after: "Rails.application.routes.draw do"
+
+        directory "templates/devise/views/", "app/views/devise/", force: true if config.dig("devise_override_views")
       end
 
       ###
