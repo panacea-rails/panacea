@@ -30,6 +30,7 @@ panacea_generator.setup_rubocop
 panacea_generator.setup_letter_opener
 panacea_generator.setup_timezone
 panacea_generator.setup_default_locale
+panacea_generator.create_database
 panacea_generator.setup_oj if panacea_config.dig("oj")
 panacea_generator.setup_dotenv if panacea_config.dig("dotenv")
 

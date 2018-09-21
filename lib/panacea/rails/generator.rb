@@ -203,6 +203,12 @@ module Panacea # :nodoc:
       end
 
       ###
+      # Create database
+      def create_database
+        rails_command "db:create"
+      end
+
+      ###
       # Setup Bullet gem
       def setup_bullet
         environment nil, env: "development" do
@@ -245,7 +251,6 @@ module Panacea # :nodoc:
         generate "devise", model_name
         generate "devise:views", plural_model_name if config.dig("devise_override_views")
 
-        rails_command "db:create"
         rails_command "db:migrate"
       end
 
