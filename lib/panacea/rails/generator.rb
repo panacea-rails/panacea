@@ -251,15 +251,27 @@ module Panacea # :nodoc:
       ###
       # Setup booswatch-rails gem.
       def setup_bootswatch
-        stylesheets = "app/assets/stylesheets/application.scss"
-
         run "rm app/assets/stylesheets/application.css"
-        template "templates/bootswatch.scss.tt", stylesheets
+        template "templates/bootswatch/stylesheets/application.scss.tt", "app/assets/stylesheets/application.scss"
 
         inject_into_file "app/assets/javascripts/application.js", after: "//= require turbolinks" do
           "\n//= require jquery
-           \n//= require boostrap-sprockets"
+           \n//= require bootstrap-sprockets"
         end
+
+        run "mkdir app/views/shared/"
+        run "rm app/views/layouts/application.html.erb"
+
+        template "templates/bootswatch/views/partials/_navbar.html.haml",
+          "app/views/partials/_navbar.html.haml"
+        template "templates/bootswatch/views/partials/_flash_messages.html.haml",
+          "app/views/partials/_flash_messages.html.haml"
+        template "templates/bootswatch/views/layouts/application.html.haml",
+          "app/views/layouts/application.html.haml", force: true
+
+        generate "controller home index"
+        inject_into_file "config/routes.rb", "\nroot to: 'home#index'", after: "Rails.application.routes.draw do"
+        template "templates/bootswatch/views/home/index.html.haml.tt", "app/views/home/index.html.haml", force: true
       end
 
       ###

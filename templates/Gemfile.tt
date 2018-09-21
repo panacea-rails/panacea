@@ -10,8 +10,9 @@ gem "<%= db_gem.name %>"<%= %(, '#{db_gem.version}') if db_gem.version %>
 
 gem "bootsnap", ">= 1.1.0", require: false
 <% if @panacea.dig("bootswatch") %>
+gem "bootstrap-sass"
 gem "bootswatch-rails"
-gem "fontawesome-rails"
+gem "font-awesome-rails"
 gem "jquery-rails"
 <% end %>
 <% if @panacea.dig("devise") -%>

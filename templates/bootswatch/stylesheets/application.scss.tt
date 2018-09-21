@@ -2,6 +2,6 @@
 @import "bootstrap-sprockets";
 @import <%= "'bootswatch/#{template_name}/variables';" %>
 @import "bootstrap";
-@import <%= "'bootswat4ch/#{template_name}/bootswatch';" %>
+@import <%= "'bootswatch/#{template_name}/bootswatch';" %>
 
 @import "font-awesome";
