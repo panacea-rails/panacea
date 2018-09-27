@@ -1,4 +1,4 @@
-%legend.center Resend confirmation instructions
+%legend.center= t("resend_confirmation_instructions")
 
 .col-md-4.col-md-offset-4
   .well
@@ -13,6 +13,6 @@
 
         .col-md-12
           %br
-          = f.submit "Resend confirmation instructions"
+          = f.submit t(".resend_confirmation_instructions")
 
       = render "devise/shared/links"

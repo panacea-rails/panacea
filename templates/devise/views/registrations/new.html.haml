@@ -1,4 +1,4 @@
-%legend.center Sign up
+%legend.center= t(".sign_up")
 
 .col-md-4.col-md-offset-4
   .well
@@ -13,7 +13,7 @@
         .col-md-12
           = f.label :password
           - if @minimum_password_length
-            %em= "(#{@minimum_password_length} caracters minimum)"
+            %em= t("devise.shared.minimum_password_length", count: @minimum_password_length)
           = f.password_field :password, autocomplete: "off", class: "form-control"
 
         .col-md-12
@@ -22,6 +22,6 @@
 
         .col-md-12
           %br
-          = f.submit "Sign up", class: "btn btn-success"
+          = f.submit t(".sign_up"), class: "btn btn-success"
 
       = render "devise/shared/links"

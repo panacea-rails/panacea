@@ -1,4 +1,4 @@
-%legend.center Log in
+%legend.center= t(".sign_in")
 
 .col-md-4.col-md-offset-4
   .well
@@ -19,6 +19,6 @@
             = f.label :remember_me
 
         .col-md-12
-          = f.submit "Log in", class: "btn btn-success"
+          = f.submit t(".sign_in"), class: "btn btn-success"
 
       = render "devise/shared/links"

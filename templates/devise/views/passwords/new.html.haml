@@ -1,4 +1,4 @@
-%legend.center Forgot your password?
+%legend.center= t(".forgot_your_password")
 
 .col-md-4.col-md-offset-4
   .well
@@ -12,6 +12,6 @@
 
         .col-md-12
           %br
-          = f.submit "Send me reset password instructions", class: "btn btn-success"
+          = f.submit t(".send_me_reset_password_instructions"), class: "btn btn-success"
 
       = render "devise/shared/links"

@@ -1,4 +1,4 @@
-%legend.center Change your password
+%legend.center= t(".change_your_password')
 
 .col-md-4.col-md-offset-4
   .well
@@ -8,19 +8,18 @@
       %fielset.form-group
         = f.hidden_field :reset_password_token
         .col-md-12
-          = f.label :password, "Nueva contraseña"
+          = f.label :password, t(".new_password')
           %br/
           - if @minimum_password_length
-            %em
-              (mínimo #{@minimum_password_length} characters minimum)
+            %em= t("devise.shared.minimum_password_length", count: @minimum_password_length)
           = f.password_field :password, autofocus: true, autocomplete: "off", class: "form-control"
 
         .col-md-12
-          = f.label :password_confirmation, "Confirm new password"
+          = f.label :password_confirmation, t(".confirm_new_password")
           = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
 
         .col-md-12
           %br
-          = f.submit "Change my password"
+          = f.submit t(".change_my_password")
 
       = render "devise/shared/links"
