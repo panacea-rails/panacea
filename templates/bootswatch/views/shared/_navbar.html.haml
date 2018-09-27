@@ -4,7 +4,7 @@
       %button.navbar-toggle.collapsed{ type: 'button', 'data-toggle': 'collapse',
                                        'data-target': '#navbar', 'aria-expanded': false }
 
-      = link_to 'Change me', root_path, class: 'navbar-brand light'
+      = link_to '<%= "#{app_name.titleize}" %>', root_path, class: 'navbar-brand light'
 
     .collapse.navbar-collapse#navbar
       %ul.nav.navbar-nav.navbar-right
