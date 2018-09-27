@@ -17,6 +17,7 @@ gem "jquery-rails"
 <% end %>
 <% if @panacea.dig("devise") -%>
 gem "devise"
+gem "devise-i18n"
 <% end -%>
 gem "haml-rails"
 gem "interactor-rails"

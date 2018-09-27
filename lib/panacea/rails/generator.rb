@@ -246,10 +246,12 @@ module Panacea # :nodoc:
       def setup_devise
         model_name = config.dig("devise_model_name").downcase
         plural_model_name = model_name.downcase.pluralize
+        locale = config.dig("locale").split("- ").last
 
         generate "devise:install"
         generate "devise", model_name
-        generate "devise:views", plural_model_name if config.dig("devise_override_views")
+        generate "devise:i18n:views", plural_model_name if config.dig("devise_override_views")
+        generate "devise:i18n:locale", locale
 
         rails_command "db:migrate"
       end
