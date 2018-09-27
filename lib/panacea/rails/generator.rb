@@ -51,7 +51,7 @@ module Panacea # :nodoc:
           after_bundle generate rails_command template
           run git source_paths empty_directory append_to_file
           environment application say inject_into_class
-          inject_into_file
+          inject_into_file directory
         ].include?(method_name) || super
       end
 
@@ -263,18 +263,19 @@ module Panacea # :nodoc:
         template "templates/bootswatch/stylesheets/application.scss.tt", "app/assets/stylesheets/application.scss"
 
         inject_into_file "app/assets/javascripts/application.js", after: "//= require turbolinks" do
-          "\n//= require jquery
-           \n//= require bootstrap-sprockets"
+          <<~CONFS
+
+            // Requires for Bootswatch
+            //= require jquery
+            //= require bootstrap-sprockets
+          CONFS
         end
 
         run "rm app/views/layouts/application.html.erb"
 
-        template "templates/bootswatch/views/shared/_navbar.html.haml",
-          "app/views/shared/_navbar.html.haml"
-        template "templates/bootswatch/views/shared/_flash_messages.html.haml",
-          "app/views/shared/_flash_messages.html.haml"
-        template "templates/bootswatch/views/layouts/application.html.haml",
-          "app/views/layouts/application.html.haml", force: true
+        template "templates/bootswatch/views/shared/_navbar.html.haml", "app/views/shared/_navbar.html.haml"
+        template "templates/bootswatch/views/shared/_flash_messages.html.haml", "app/views/shared/_flash_messages.html.haml"
+        template "templates/bootswatch/views/layouts/application.html.haml", "app/views/layouts/application.html.haml", force: true
 
         generate "controller home index"
         inject_into_file "config/routes.rb", "\nroot to: 'home#index'", after: "Rails.application.routes.draw do"

@@ -9,12 +9,6 @@ gem "rails", "~> 5.2.1"
 gem "<%= db_gem.name %>"<%= %(, '#{db_gem.version}') if db_gem.version %>
 
 gem "bootsnap", ">= 1.1.0", require: false
-<% if @panacea.dig("bootswatch") %>
-gem "bootstrap-sass"
-gem "bootswatch-rails"
-gem "font-awesome-rails"
-gem "jquery-rails"
-<% end %>
 <% if @panacea.dig("devise") -%>
 gem "devise"
 gem "devise-i18n"
@@ -51,6 +45,14 @@ gem "webpacker"
 # Background Jobs Adapter
 gem "<%= @panacea.dig("background_job") %>"
 <% end -%>
+
+<% if @panacea.dig("bootswatch") %>
+# Bootswatch Dependencies
+gem "bootstrap-sass"
+gem "bootswatch-rails"
+gem "font-awesome-rails"
+gem "jquery-rails"
+<% end %>
 
 # Test Suite Gem
 gem "<%= @panacea.dig("test_suite") %>-rails", group: [:development, :test]
