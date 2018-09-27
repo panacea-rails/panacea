@@ -1,0 +1,8 @@
+- if alert
+  .alert.alert-dismissible.alert-danger
+    %button.close{ type: 'button', 'data-dismiss': 'alert' } &times;
+    = alert
+- if notice
+  .alert.alert-dismissible.alert-success
+    %button.close{ type: 'button', 'data-dismiss': 'alert' } &times;
+    = notice

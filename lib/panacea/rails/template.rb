@@ -30,6 +30,7 @@ panacea_generator.setup_rubocop
 panacea_generator.setup_letter_opener
 panacea_generator.setup_timezone
 panacea_generator.setup_default_locale
+panacea_generator.create_database
 panacea_generator.setup_oj if panacea_config.dig("oj")
 panacea_generator.setup_dotenv if panacea_config.dig("dotenv")
 
@@ -44,6 +45,7 @@ panacea_generator.after_bundle_hook do |generator|
   generator.setup_money_rails if panacea_config.dig("money_rails")
   generator.setup_kaminari if panacea_config.dig("kaminari")
   generator.setup_webpack if panacea_config.dig("webpack")
+  generator.setup_bootswatch if panacea_config.dig("bootswatch")
   generator.setup_foreman if panacea_config.dig("foreman")
   generator.setup_pundit if panacea_config.dig("pundit")
 

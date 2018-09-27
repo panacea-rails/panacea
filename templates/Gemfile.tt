@@ -46,6 +46,14 @@ gem "webpacker"
 gem "<%= @panacea.dig("background_job") %>"
 <% end -%>
 
+<% if @panacea.dig("bootswatch") %>
+# Bootswatch Dependencies
+gem "bootstrap-sass", "~> 3.3.7"
+gem "bootswatch-rails"
+gem "font-awesome-rails"
+gem "jquery-rails"
+<% end %>
+
 # Test Suite Gem
 gem "<%= @panacea.dig("test_suite") %>-rails", group: [:development, :test]
 

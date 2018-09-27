@@ -1,0 +1,17 @@
+%legend.center= t(".forgot_your_password")
+
+.col-md-4.col-md-offset-4
+  .well
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      = devise_error_messages!
+
+      %fielset.form-group
+        .col-md-12
+          = f.label :email
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
+
+        .col-md-12
+          %br
+          = f.submit t(".send_me_reset_password_instructions"), class: "btn btn-success"
+
+      = render "devise/shared/links"

@@ -235,6 +235,33 @@ webpack:
         - elm
         - stimulus
 
+bootswatch:
+  title: Do you want to use a bootswatch 3 template? (https://bootswatch.com/3/)
+  default: false
+  type: boolean
+  disable_with: webpack
+  subquestions:
+    bootswatch_template_name:
+      title: Which template do you want to setup?
+      type: select
+      options:
+        - cerulean
+        - cosmo
+        - cyborg
+        - darkly
+        - flatly
+        - journal
+        - lumen
+        - paper
+        - readable
+        - sandstone
+        - simplex
+        - slate
+        - spacelab
+        - superhero
+        - united
+        - yeti
+
 pg_search:
   title: Do you want to use pg_search gem to enable PostgreSQL's full text search?
   default: false

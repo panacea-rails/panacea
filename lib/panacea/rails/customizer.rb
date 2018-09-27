@@ -98,7 +98,9 @@ module Panacea # :nodoc:
 
       def ask_questions(questions = load_questions)
         questions.each do |key, question|
-          answer = ask_question(key, question)
+          disable_with = questions.dig(key, "disable_with")
+
+          answer = ask_question(key, question) unless answers.dig(disable_with)
           subquestions = question.dig("subquestions")
 
           ask_questions(subquestions) if !subquestions.nil? && answer
@@ -138,7 +140,7 @@ module Panacea # :nodoc:
 
       def load_questions
         questions_file = File.join(File.expand_path("../../../config", __dir__), "questions.yml")
-        @questions = YAML.safe_load(File.read(questions_file))
+        @questions ||= YAML.safe_load(File.read(questions_file))
       end
 
       def save_answers
