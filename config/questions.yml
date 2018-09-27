@@ -236,7 +236,7 @@ webpack:
         - stimulus
 
 bootswatch:
-  title: Do you want to use a bootswatch 3 template? (https://bootswatch.com/3/)
+  title: Do you want to use a Bootswatch 3 template?
   default: false
   type: boolean
   disable_with: webpack
