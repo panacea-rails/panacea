@@ -48,7 +48,7 @@ gem "<%= @panacea.dig("background_job") %>"
 
 <% if @panacea.dig("bootswatch") %>
 # Bootswatch Dependencies
-gem "bootstrap-sass"
+gem "bootstrap-sass", "~> 3.3.7"
 gem "bootswatch-rails"
 gem "font-awesome-rails"
 gem "jquery-rails"
