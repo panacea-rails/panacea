@@ -5,10 +5,10 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "<%= @panacea.dig("ruby_version") %>"
-gem "rails", "~> 5.2.2.1"
+gem "rails", "~> 6.0.0"
 gem "<%= db_gem.name %>"<%= %(, '#{db_gem.version}') if db_gem.version %>
 
-gem "bootsnap", ">= 1.1.0", require: false
+gem "bootsnap", ">= 1.4.1", require: false
 <% if @panacea.dig("devise") -%>
 gem "devise"
 gem "devise-i18n"
@@ -27,7 +27,7 @@ gem "money-rails", "~> 1"
 <% if @panacea.dig("pg_search") -%>
 gem "pg_search"
 <% end -%>
-gem "puma", "~> 3.11"
+gem "puma", "~> 4.1"
 <% if @panacea.dig("pundit") -%>
 gem "pundit"
 <% end -%>
@@ -45,6 +45,7 @@ gem "webpacker"
 # Background Jobs Adapter
 gem "<%= @panacea.dig("background_job") %>"
 <% end -%>
+gem 'image_processing', '~> 1.9'
 
 <% if @panacea.dig("bootswatch") %>
 # Bootswatch Dependencies
