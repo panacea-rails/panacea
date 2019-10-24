@@ -219,49 +219,6 @@ dotenv:
   default: false
   type: boolean
 
-webpack:
-  title: Do you want to use Webpacker to manage your app's frontend?
-  default: false
-  type: boolean
-  subquestions:
-    webpack_type:
-      title: What framework do you want to pre-configure Webpack with?
-      type: select
-      options:
-        - none
-        - react
-        - vue
-        - angular
-        - elm
-        - stimulus
-
-bootswatch:
-  title: Do you want to use a Bootswatch 3 template?
-  default: false
-  type: boolean
-  disable_with: webpack
-  subquestions:
-    bootswatch_template_name:
-      title: Which template do you want to setup?
-      type: select
-      options:
-        - cerulean
-        - cosmo
-        - cyborg
-        - darkly
-        - flatly
-        - journal
-        - lumen
-        - paper
-        - readable
-        - sandstone
-        - simplex
-        - slate
-        - spacelab
-        - superhero
-        - united
-        - yeti
-
 pg_search:
   title: Do you want to use pg_search gem to enable PostgreSQL's full text search?
   default: false
@@ -338,8 +295,3 @@ autocommit:
       title: What should be the commit's message?
       default: Initialize Rails App powered with Panacea
       type: text
-
-share_usage_info:
-  title: Do you want to help us improve Panacea by sharing with us your answers? [100% anonymous]
-  default: true
-  type: boolean
