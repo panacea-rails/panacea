@@ -24,7 +24,7 @@ Panacea will ask you some questions in order to help you setup your fresh Rails 
 
 You can read the full documentation here:
 
-**[https://www.panacea.website](https://www.panacea.website)**
+**[https://panacea-rails.github.io/website/](https://panacea-rails.github.io/website/)**
 
 ## Suggesting Integrations
 
