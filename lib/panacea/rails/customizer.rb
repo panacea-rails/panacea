@@ -85,7 +85,6 @@ module Panacea # :nodoc:
       def start
         welcome_message
         ask_questions
-        track_answers
         save_answers
       end
 

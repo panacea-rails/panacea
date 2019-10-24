@@ -26,6 +26,8 @@ panacea_generator.update_source_paths
 panacea_generator.copy_gemfile
 panacea_generator.copy_readme
 panacea_generator.generate_panacea_document
+panacea_generator.run_bundle
+
 panacea_generator.setup_rubocop
 panacea_generator.setup_letter_opener
 panacea_generator.setup_timezone
@@ -33,26 +35,19 @@ panacea_generator.setup_default_locale
 panacea_generator.create_database
 panacea_generator.setup_oj if panacea_config.dig("oj")
 panacea_generator.setup_dotenv if panacea_config.dig("dotenv")
+panacea_generator.setup_bullet
+panacea_generator.setup_test_suite
+panacea_generator.override_test_helper
+panacea_generator.setup_simplecov
+panacea_generator.setup_background_job if panacea_config.dig("background_job") != "none"
+panacea_generator.override_application_system_test if panacea_config.dig("headless_chrome")
+panacea_generator.setup_devise if panacea_config.dig("devise")
+panacea_generator.setup_money_rails if panacea_config.dig("money_rails")
+panacea_generator.setup_kaminari if panacea_config.dig("kaminari")
+panacea_generator.setup_foreman if panacea_config.dig("foreman")
+panacea_generator.setup_pundit if panacea_config.dig("pundit")
 
-panacea_generator.after_bundle_hook do |generator|
-  generator.setup_bullet
-  generator.setup_test_suite
-  generator.override_test_helper
-  generator.setup_simplecov
-  generator.setup_background_job if panacea_config.dig("background_job") != "none"
-  generator.override_application_system_test if panacea_config.dig("headless_chrome")
-  generator.setup_devise if panacea_config.dig("devise")
-  generator.setup_money_rails if panacea_config.dig("money_rails")
-  generator.setup_kaminari if panacea_config.dig("kaminari")
-  generator.setup_webpack if panacea_config.dig("webpack")
-  generator.setup_bootswatch if panacea_config.dig("bootswatch")
-  generator.setup_foreman if panacea_config.dig("foreman")
-  generator.setup_pundit if panacea_config.dig("pundit")
-
-  # This should be always at the end
-  generator.fix_offenses!
-  generator.commit! if panacea_config.dig("autocommit")
-  generator.setup_githook if panacea_config.dig("githook") && !options[:skip_git]
-
-  generator.bye_message
-end
+panacea_generator.fix_offenses!
+panacea_generator.commit! if panacea_config.dig("autocommit")
+panacea_generator.setup_githook if panacea_config.dig("githook") && !options[:skip_git]
+panacea_generator.bye_message
