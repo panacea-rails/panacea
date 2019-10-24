@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    panacea-rails (0.1.5)
+    panacea-rails (0.2.1)
       bundler (~> 1)
       slop (~> 4.6)
       tty-prompt (~> 0.17)
