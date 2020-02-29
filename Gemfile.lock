@@ -22,7 +22,7 @@ GEM
       tty-color (~> 0.5)
     powerpack (0.1.2)
     rainbow (3.0.0)
-    rake (10.5.0)
+    rake (13.0.1)
     rdoc (6.0.4)
     rubocop (0.58.2)
       jaro_winkler (~> 1.5.1)
@@ -56,7 +56,7 @@ PLATFORMS
 DEPENDENCIES
   minitest (~> 5.0)
   panacea-rails!
-  rake (~> 10.0)
+  rake (~> 13.0)
   rubocop (~> 0.58)
   sdoc (~> 1.0)
 
